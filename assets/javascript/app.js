@@ -25,13 +25,36 @@ function restart() {
     $("#box1").append(startButton);
 }
 
-function startTimer() {
 
+//TIMER OBJECT
+var timer = {
+
+    time: 30,
+
+    reset: function() {
+        timer.time = 30;
+        $("#timer").text(timer.time);
+    },
+
+    start: function() {
+        if (!clockRunning) {
+            intervalId = setInterval(timer.count, 1000);
+            clockRunning = true;
+        }
+    },
+
+    stop: function() {
+        clearInterval(intervalId);
+        clockRunning = false;
+    },
+
+    count: function() {
+        //decrement time by 1
+        timer.time--;
+        $("#timer").text(timer.time);
+    }
 }
 
-function stopTimer() {
-    
-}
 
 //MAIN PROCESS
 
