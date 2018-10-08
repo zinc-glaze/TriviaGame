@@ -1,7 +1,6 @@
 //TRIVIA GAME
 
 //GLOBAL VARIABLES
-
 //Number of right and wrong guesses
 var correct;
 var wrong;
@@ -11,15 +10,13 @@ var intervalId;
 var clockRunning = false;
 //stores question count
 var cardNum = 0;
-//whether the user's guess is correct
-var isCorrect = true;
 
 //FUNCTIONS
-
 //Restarts game, resets variables, clears divs
 function restart() {
     correct = 0;
     wrong = 0;
+    cardNum = 0;
     clockRunning = false;
     $("#timer").empty();
     $("#box1").empty();
@@ -33,6 +30,8 @@ function restart() {
 //Draws the next question card
 function nextCard() {
     $("#timer").text(30);
+    $("#box2").empty();
+    timer.reset();
     timer.start();
     $("#box1").text(triviaDeck.cards[cardNum].question);
     var multipleChoice = $("<ul>");
@@ -46,32 +45,39 @@ function nextCard() {
     $("#box2").append(multipleChoice);
 }
 
-//Pauses game play after right or wrong answer, increments cardNum
-function pause() {
-    cardNum++;
-}
-
 //Checks user guess against correct answer, and update right/wrong count
 function checkAnswer() {
+    timer.stop();
     if ($(this).attr("data-choice") == triviaDeck.cards[cardNum].validAnswer) {
-        isCorrect = true;
         winScreen();
     }
     else {
-        isCorrect = false;
         loseScreen();
     }
-    timer.stop();
-    console.log(isCorrect);
 }
 
 function winScreen() {
+    $("#box1").text("Correct! The answer was " + triviaDeck.cards[cardNum].choices[triviaDeck.cards[cardNum].validAnswer] + ".");
+    $("#box2").text("Insert Image Here");
     correct++;
-    //Message in #box1 ("Correct! The answer was..."), image in #box2
+    cardNum++;
+    setTimeout(nextCard, 5000);
 }
 
 function loseScreen() {
+    $("#box1").text("Wrong! The answer was " + triviaDeck.cards[cardNum].choices[triviaDeck.cards[cardNum].validAnswer] + ".");
+    $("#box2").text("Insert Image Here");
     wrong++;
+    cardNum++;
+    setTimeout(nextCard, 5000);
+}
+
+function timeUpScreen() {
+    $("#box1").text("Time's Up! The answer was " + triviaDeck.cards[cardNum].choices[triviaDeck.cards[cardNum].validAnswer] + ".");
+    $("#box2").text("Insert Image Here");
+    wrong++;
+    cardNum++;
+    setTimeout(nextCard, 5000);
 }
 
 function endScreen() {
@@ -128,7 +134,6 @@ var timer = {
         //decrement time by 1
         timer.time--;
         $("#timer").text(timer.time);
-        
     }
 }
 
@@ -142,6 +147,8 @@ window.onload = function() {
     $(".start-button").on("click", nextCard);
 
     $(document).on("click", ".answer-button", checkAnswer);
+
+    
 
  
 };
