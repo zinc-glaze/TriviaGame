@@ -11,9 +11,12 @@ var intervalId;
 var clockRunning = false;
 //stores question count
 var cardNum = 0;
+//whether the user's guess is correct
+var isCorrect = true;
 
 //FUNCTIONS
 
+//Restarts game, resets variables, clears divs
 function restart() {
     correct = 0;
     wrong = 0;
@@ -27,6 +30,7 @@ function restart() {
     $("#box1").append(startButton);
 }
 
+//Draws the next question card
 function nextCard() {
     $("#timer").text(30);
     timer.start();
@@ -40,10 +44,37 @@ function nextCard() {
         multipleChoice.append(choice);
     }
     $("#box2").append(multipleChoice);
+}
+
+//Pauses game play after right or wrong answer, increments cardNum
+function pause() {
     cardNum++;
 }
 
-function pause() {
+//Checks user guess against correct answer, and update right/wrong count
+function checkAnswer() {
+    if ($(this).attr("data-choice") == triviaDeck.cards[cardNum].validAnswer) {
+        isCorrect = true;
+        winScreen();
+    }
+    else {
+        isCorrect = false;
+        loseScreen();
+    }
+    timer.stop();
+    console.log(isCorrect);
+}
+
+function winScreen() {
+    correct++;
+    //Message in #box1 ("Correct! The answer was..."), image in #box2
+}
+
+function loseScreen() {
+    wrong++;
+}
+
+function endScreen() {
 
 }
 
@@ -105,8 +136,12 @@ var timer = {
 //MAIN PROCESS
 
 window.onload = function() {
+
     restart();
+
     $(".start-button").on("click", nextCard);
+
+    $(document).on("click", ".answer-button", checkAnswer);
 
  
 };
