@@ -29,11 +29,19 @@ function restart() {
 
 //Draws the next question card
 function nextCard() {
-    $("#timer").text(30);
+    //if there are no more questions left, go to end screen
+    if (cardNum == triviaDeck.cards.length) {
+        endScreen();
+    }
+    //clear previous multiple choice
     $("#box2").empty();
+    //restart timer
+    $("#timer").text(30);
     timer.reset();
     timer.start();
+    //print question
     $("#box1").text(triviaDeck.cards[cardNum].question);
+    //print multiple choice
     var multipleChoice = $("<ul>");
     for (i = 0; i < 4; i++) {
         var choice = $("<li>");
@@ -61,7 +69,7 @@ function winScreen() {
     $("#box2").text("Insert Image Here");
     correct++;
     cardNum++;
-    setTimeout(nextCard, 5000);
+    setTimeout(nextCard, 3000);
 }
 
 function loseScreen() {
@@ -69,7 +77,7 @@ function loseScreen() {
     $("#box2").text("Insert Image Here");
     wrong++;
     cardNum++;
-    setTimeout(nextCard, 5000);
+    setTimeout(nextCard, 3000);
 }
 
 function timeUpScreen() {
@@ -77,10 +85,13 @@ function timeUpScreen() {
     $("#box2").text("Insert Image Here");
     wrong++;
     cardNum++;
-    setTimeout(nextCard, 5000);
+    setTimeout(nextCard, 3000);
 }
 
 function endScreen() {
+    $("#timer").empty();
+    $("#box1").text("Game Over! Correct: " + correct + "  Wrong: " + wrong);
+    $("#box2").text("Play Again");
 
 }
 
@@ -93,6 +104,11 @@ var triviaDeck = {
         choices: ["Diana Ross", "Steve Winwood", "Stevie Wonder", "Tina Turner"],
         image:  "",
         validAnswer: 3
+        }, {
+        question: "Which Jackson sibling gained 'Control' of the #1 spot on the album charts with this 1986 album?",
+        choices: ["Michael", "Janet", "Jermaine", "La Toya"],
+        image:  "",
+        validAnswer: 1
         }, {
         question: "Which artist released a tribute to autoerotic stimulation titled 'She Bop' in 1984?",
         choices: ["Belinda Carlisle", "Cindy Lauper", "Madonna", "Prince"],
