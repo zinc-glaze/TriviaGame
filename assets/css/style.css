@@ -46,7 +46,7 @@ h2 {
     border: 3px solid grey;
 }
 
-.start-button {
+.start-button, .replay-button {
     background-color: #4CAF50;
     margin: 10px;
     border: none;
@@ -59,7 +59,7 @@ h2 {
     font-size: 36px;
 }
 
-.start-button:hover {
+.start-button, .replay-button:hover {
     cursor: pointer;
 }
 

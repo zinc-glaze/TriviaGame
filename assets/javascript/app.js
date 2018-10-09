@@ -27,6 +27,8 @@ function restart() {
     $("#box1").append(startButton);
     //shuffles deck
     shuffle();
+    //when start button is clicked, first question is drawn
+    $(".start-button").on("click", nextCard);
 }
 
 //Shuffles deck    
@@ -47,7 +49,7 @@ function nextCard() {
         //clear previous multiple choice
         $("#box2").empty();
         //restart timer
-        $("#timer").text(30);
+        $("#timer").text(15);
         timer.reset();
         timer.start();
         //print question
@@ -65,7 +67,7 @@ function nextCard() {
     }
 }
 
-//Checks user guess against correct answer, and update right/wrong count
+//Checks user guess against correct answer, sends to next screen
 function checkAnswer() {
     timer.stop();
     if ($(this).attr("data-choice") == triviaDeck.cards[cardNum].validAnswer) {
@@ -106,9 +108,15 @@ function timeUpScreen() {
 //When there are no more questions
 function endScreen() {
     $("#timer").empty();
+    $("#box2").empty();
     $("#box1").text("Game Over! Correct: " + correct + "  Wrong: " + wrong);
-    $("#box2").text("Play Again");
-
+    //creates replay button
+    var replayButton = $("<button>");
+    replayButton.text("Play Again?");
+    replayButton.addClass("replay-button");
+    $("#box2").append(replayButton);
+    //when user clicks replay button, game restarts
+    $(".replay-button").on("click", restart);
 }
 
 //TRIVIA DECK OBJECT
@@ -130,17 +138,15 @@ var triviaDeck = {
         image:  "",
         validAnswer: 1
         }],
-    
 }
-
 
 //QUESTION TIMER OBJECT
 var timer = {
 
-    time: 30,
+    time: 15,
 
     reset: function() {
-        timer.time = 30;
+        timer.time = 15;
         $("#timer").text(timer.time);
     },
 
@@ -160,22 +166,16 @@ var timer = {
         //decrement time by 1
         timer.time--;
         $("#timer").text(timer.time);
+        if (timer.time === 0) {
+            timer.stop();
+            timeUpScreen();
+        }
     }
 }
 
-
 //MAIN PROCESS
-
 window.onload = function() {
-
-    restart();
-
-    $(".start-button").on("click", nextCard);
-
+    restart();    
     $(document).on("click", ".answer-button", checkAnswer);
-
-    
-
- 
 };
 
