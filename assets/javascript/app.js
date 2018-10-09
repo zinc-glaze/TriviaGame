@@ -80,7 +80,7 @@ function checkAnswer() {
 
 //On correct guess
 function winScreen() {
-    $("#box1").text("Correct! The answer was " + triviaDeck.cards[cardNum].choices[triviaDeck.cards[cardNum].validAnswer] + ".");
+    $("#box1").text("CORRECT!");
     $("#box2").text("Insert Image Here");
     correct++;
     cardNum++;
@@ -89,7 +89,7 @@ function winScreen() {
 
 //On incorrect guess
 function loseScreen() {
-    $("#box1").text("Wrong! The answer was " + triviaDeck.cards[cardNum].choices[triviaDeck.cards[cardNum].validAnswer] + ".");
+    $("#box1").text("WRONG!  The answer was " + triviaDeck.cards[cardNum].choices[triviaDeck.cards[cardNum].validAnswer] + ".");
     $("#box2").text("Insert Image Here");
     wrong++;
     cardNum++;
@@ -98,7 +98,7 @@ function loseScreen() {
 
 //On timer = 0
 function timeUpScreen() {
-    $("#box1").text("Time's Up! The answer was " + triviaDeck.cards[cardNum].choices[triviaDeck.cards[cardNum].validAnswer] + ".");
+    $("#box1").text("TIME'S UP! The answer was " + triviaDeck.cards[cardNum].choices[triviaDeck.cards[cardNum].validAnswer] + ".");
     $("#box2").text("Insert Image Here");
     wrong++;
     cardNum++;
@@ -109,7 +109,7 @@ function timeUpScreen() {
 function endScreen() {
     $("#timer").empty();
     $("#box2").empty();
-    $("#box1").text("Game Over! Correct: " + correct + "  Wrong: " + wrong);
+    $("#box1").text("-- GAME OVER! -- Correct: " + correct + " -- Wrong: " + wrong + " --");
     //creates replay button
     var replayButton = $("<button>");
     replayButton.text("Play Again?");

@@ -1,62 +1,52 @@
 body {
-    font-size: 30px;
+    background-image: url("../images/black_denim.png");
+    font-size: 36px;
+    font-family: 'Raleway', sans-serif;
+    color: aliceblue;
 }
 
 header {
+    font-family: 'Megrim', cursive;
     padding: 20px;
     text-align: center;
-    margin-bottom: 30px;
 }
 
 main {
+    background-color: #be58a3;
     width: 1000px;
+    border: 12px dotted #369980;
+    border-radius: 5px;
+    line-height: normal;
     margin: auto;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 h1 {
-    font-size: 52px;
-}
-
-h2 {
-    font-size: 64px;
+    font-size: 68px;
 }
 
 #timer {
-    padding: 20px;
+    font-family: 'Righteous', cursive;
+    height: 65px;
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 42px;
-    color: purple;
+    margin-bottom: 20px;
+    font-size: 62px;
+    color: #be58a3;
 }
 
 #box1 {
-    padding: 20px;
+    height: 120px;
+    padding: 30px 30px 15px 30px;
     text-align: center;
     margin: auto;
-    margin-bottom: 30px;
-    border: 3px solid grey;
 }
 
 #box2 {
-    padding: 20px;
+    height: 200px;
+    padding: 30px 30px 15px 30px;
     text-align: center;
     margin: auto;
     margin-bottom: 30px;
-    border: 3px solid grey;
-}
-
-.start-button, .replay-button {
-    background-color: #4CAF50;
-    margin: 10px;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 36px;
 }
 
 .start-button, .replay-button:hover {
@@ -64,6 +54,27 @@ h2 {
 }
 
 .answer-button:hover {
-    background-color: aqua;
+    border: 2px dotted #e4bde8;
+    padding: 7px;
 }
+
+
+.start-button, .replay-button {
+    font-family: 'Megrim', cursive;
+    background-color: #369980;
+    margin-top: 36px;
+    border: 3px dotted #e4bde8;
+    color: white;
+    padding: 12px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 42px;
+}
+
+.answer-button {
+    padding: 5px;
+    text-align: center;
+}
+
 
