@@ -157,7 +157,7 @@ var triviaDeck = {
         image:  "https://media.giphy.com/media/CCVWsXdnvYS9a/giphy-downsized.gif",
         validAnswer: 0
         }, {
-        question: "Which singer who went by a one-word name was born with the last name 'Ciccone",
+        question: "Which singer who went by a one-word name was born with the last name 'Ciccone'",
         choices: ["Cher", "Apollonia", "Madonna", "Lisa Lisa"],
         image:  "https://media.giphy.com/media/7ezI6uAsF8wzS/giphy-downsized.gif",
         validAnswer: 2
