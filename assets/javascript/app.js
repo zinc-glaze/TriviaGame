@@ -31,6 +31,21 @@ function restart() {
     $(".start-button").on("click", nextCard);
 }
 
+//Replay (similar to restart, but launches directly into questions)
+function replay() {
+    correct = 0;
+    wrong = 0;
+    cardNum = 0;
+    clockRunning = false;
+    $("#timer").empty();
+    $("#box1").empty();
+    $("#box2").empty();
+    //shuffles deck
+    shuffle();
+    //draws question
+    nextCard();
+}
+
 //Shuffles deck    
 function shuffle() {
     triviaDeck.cards.sort(function() {
@@ -81,7 +96,10 @@ function checkAnswer() {
 //On correct guess
 function winScreen() {
     $("#box1").text("CORRECT!");
-    $("#box2").text("Insert Image Here");
+    $("#box2").empty();
+    var answerImage = $("<img>");
+    answerImage.attr("src", triviaDeck.cards[cardNum].image);
+    $("#box2").append(answerImage);
     correct++;
     cardNum++;
     setTimeout(nextCard, 3000);
@@ -89,8 +107,11 @@ function winScreen() {
 
 //On incorrect guess
 function loseScreen() {
-    $("#box1").text("WRONG!  The answer was " + triviaDeck.cards[cardNum].choices[triviaDeck.cards[cardNum].validAnswer] + ".");
-    $("#box2").text("Insert Image Here");
+    $("#box1").text("WRONG!  The answer was: " + triviaDeck.cards[cardNum].choices[triviaDeck.cards[cardNum].validAnswer]);
+    $("#box2").empty();
+    var answerImage = $("<img>");
+    answerImage.attr("src", triviaDeck.cards[cardNum].image);
+    $("#box2").append(answerImage);
     wrong++;
     cardNum++;
     setTimeout(nextCard, 3000);
@@ -98,8 +119,11 @@ function loseScreen() {
 
 //On timer = 0
 function timeUpScreen() {
-    $("#box1").text("TIME'S UP! The answer was " + triviaDeck.cards[cardNum].choices[triviaDeck.cards[cardNum].validAnswer] + ".");
-    $("#box2").text("Insert Image Here");
+    $("#box1").text("TIME'S UP! The answer was: " + triviaDeck.cards[cardNum].choices[triviaDeck.cards[cardNum].validAnswer]);
+    $("#box2").empty();
+    var answerImage = $("<img>");
+    answerImage.attr("src", triviaDeck.cards[cardNum].image);
+    $("#box2").append(answerImage);
     wrong++;
     cardNum++;
     setTimeout(nextCard, 3000);
@@ -116,7 +140,7 @@ function endScreen() {
     replayButton.addClass("replay-button");
     $("#box2").append(replayButton);
     //when user clicks replay button, game restarts
-    $(".replay-button").on("click", restart);
+    $(".replay-button").on("click", replay);
 }
 
 //TRIVIA DECK OBJECT
@@ -125,17 +149,32 @@ var triviaDeck = {
     cards: [{
         question: "Which singer made a comeback as a 'Private Dancer' in 1984?",
         choices: ["Diana Ross", "Steve Winwood", "Stevie Wonder", "Tina Turner"],
-        image:  "",
+        image:  "https://media.giphy.com/media/YxsVhh1HSoq6A/giphy-downsized.gif",
+        validAnswer: 3
+        }, {
+        question: "Who produced Michael Jackson's mega-hit 1982 album 'Thriller'?",
+        choices: ["Quincy Jones", "Berry Gordy", "George Martin", "P Diddy"],
+        image:  "https://media.giphy.com/media/CCVWsXdnvYS9a/giphy-downsized.gif",
+        validAnswer: 0
+        }, {
+        question: "Which singer who went by a one-word name was born with the last name 'Ciccone",
+        choices: ["Cher", "Apollonia", "Madonna", "Lisa Lisa"],
+        image:  "https://media.giphy.com/media/7ezI6uAsF8wzS/giphy-downsized.gif",
+        validAnswer: 2
+        }, {
+        question: "Which solo artist named his Minneapolis home and recording studio 'Paisley Park'?",
+        choices: ["Billy Idol", "Bono", "Sting", "Prince"],
+        image:  "https://media.giphy.com/media/s33IE5ZiQfha8/giphy.gif",
         validAnswer: 3
         }, {
         question: "Which Jackson sibling gained 'Control' of the #1 spot on the album charts with this 1986 album?",
         choices: ["Michael", "Janet", "Jermaine", "La Toya"],
-        image:  "",
+        image:  "https://media.giphy.com/media/BWJ5HDG6T5lK0/giphy-downsized.gif",
         validAnswer: 1
         }, {
-        question: "Which artist released a tribute to autoerotic stimulation titled 'She Bop' in 1984?",
+        question: "Which artist released a tribute to self-love entitled 'She Bop' in 1984?",
         choices: ["Belinda Carlisle", "Cindy Lauper", "Madonna", "Prince"],
-        image:  "",
+        image:  "https://media.giphy.com/media/gKgNfbONJH1ja/giphy.gif",
         validAnswer: 1
         }],
 }

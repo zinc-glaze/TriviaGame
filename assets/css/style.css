@@ -1,6 +1,7 @@
 body {
     background-image: url("../images/black_denim.png");
     font-size: 36px;
+    letter-spacing: normal;
     font-family: 'Raleway', sans-serif;
     color: aliceblue;
 }
@@ -14,11 +15,12 @@ header {
 main {
     background-color: #be58a3;
     width: 1000px;
-    border: 12px dotted #369980;
+    border: 10px dotted #369980;
     border-radius: 5px;
     line-height: normal;
     margin: auto;
     margin-bottom: 15px;
+    overflow: auto;
 }
 
 h1 {
@@ -30,7 +32,7 @@ h1 {
     height: 65px;
     text-align: center;
     margin-bottom: 20px;
-    font-size: 62px;
+    font-size: 64px;
     color: #be58a3;
 }
 
@@ -42,7 +44,7 @@ h1 {
 }
 
 #box2 {
-    height: 200px;
+    height: 240px;
     padding: 30px 30px 15px 30px;
     text-align: center;
     margin: auto;
@@ -54,10 +56,10 @@ h1 {
 }
 
 .answer-button:hover {
-    border: 2px dotted #e4bde8;
-    padding: 7px;
+    border: 3px dotted #e4bde8;
+    border-radius: 3px;
+    padding: 6px;
 }
-
 
 .start-button, .replay-button {
     font-family: 'Megrim', cursive;
@@ -75,6 +77,10 @@ h1 {
 .answer-button {
     padding: 5px;
     text-align: center;
+}
+
+img {
+    max-height: 200px;
 }
 
 
