@@ -25,32 +25,44 @@ function restart() {
     startButton.text("Start!");
     startButton.addClass("start-button");
     $("#box1").append(startButton);
+    //shuffles deck
+    shuffle();
+}
+
+//Shuffles deck    
+function shuffle() {
+    triviaDeck.cards.sort(function() {
+        return 0.5 - Math.random();
+    });
 }
 
 //Draws the next question card
 function nextCard() {
     //if there are no more questions left, go to end screen
     if (cardNum == triviaDeck.cards.length) {
+        timer.stop();
         endScreen();
     }
-    //clear previous multiple choice
-    $("#box2").empty();
-    //restart timer
-    $("#timer").text(30);
-    timer.reset();
-    timer.start();
-    //print question
-    $("#box1").text(triviaDeck.cards[cardNum].question);
-    //print multiple choice
-    var multipleChoice = $("<ul>");
-    for (i = 0; i < 4; i++) {
-        var choice = $("<li>");
-        choice.text(triviaDeck.cards[cardNum].choices[i]);
-        choice.attr("data-choice", i);
-        choice.addClass("answer-button");
-        multipleChoice.append(choice);
+    else {
+        //clear previous multiple choice
+        $("#box2").empty();
+        //restart timer
+        $("#timer").text(30);
+        timer.reset();
+        timer.start();
+        //print question
+        $("#box1").text(triviaDeck.cards[cardNum].question);
+        //print multiple choice
+        var multipleChoice = $("<ul>");
+        for (i = 0; i < 4; i++) {
+            var choice = $("<li>");
+            choice.text(triviaDeck.cards[cardNum].choices[i]);
+            choice.attr("data-choice", i);
+            choice.addClass("answer-button");
+            multipleChoice.append(choice);
+        }
+        $("#box2").append(multipleChoice);
     }
-    $("#box2").append(multipleChoice);
 }
 
 //Checks user guess against correct answer, and update right/wrong count
@@ -64,6 +76,7 @@ function checkAnswer() {
     }
 }
 
+//On correct guess
 function winScreen() {
     $("#box1").text("Correct! The answer was " + triviaDeck.cards[cardNum].choices[triviaDeck.cards[cardNum].validAnswer] + ".");
     $("#box2").text("Insert Image Here");
@@ -72,6 +85,7 @@ function winScreen() {
     setTimeout(nextCard, 3000);
 }
 
+//On incorrect guess
 function loseScreen() {
     $("#box1").text("Wrong! The answer was " + triviaDeck.cards[cardNum].choices[triviaDeck.cards[cardNum].validAnswer] + ".");
     $("#box2").text("Insert Image Here");
@@ -80,6 +94,7 @@ function loseScreen() {
     setTimeout(nextCard, 3000);
 }
 
+//On timer = 0
 function timeUpScreen() {
     $("#box1").text("Time's Up! The answer was " + triviaDeck.cards[cardNum].choices[triviaDeck.cards[cardNum].validAnswer] + ".");
     $("#box2").text("Insert Image Here");
@@ -88,13 +103,13 @@ function timeUpScreen() {
     setTimeout(nextCard, 3000);
 }
 
+//When there are no more questions
 function endScreen() {
     $("#timer").empty();
     $("#box1").text("Game Over! Correct: " + correct + "  Wrong: " + wrong);
     $("#box2").text("Play Again");
 
 }
-
 
 //TRIVIA DECK OBJECT
 var triviaDeck = {
@@ -115,12 +130,7 @@ var triviaDeck = {
         image:  "",
         validAnswer: 1
         }],
-    //Shuffle deck    
-    shuffle: function() {
-        cards.sort(function() {
-            return 0.5 - Math.random();
-        });
-    }
+    
 }
 
 
