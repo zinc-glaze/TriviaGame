@@ -1,9 +1,25 @@
 # 1980s Pop Trivia
-## Zeke Graves Javascript 2 Homework
+## UNC Coding Bootcamp JavaScript Homework #5  10-9-2018
 
-This assignment is a multiple choice trivia game with a timer for each question. 
+This game is a multiple choice trivia challenge with a timer for each question.
 
-The requirements were:
+This app uses:
+* Javascript and jQuery for game logic and interactivity
+* HTML and CSS for layout and styling
+
+My deployed app can be viewed here: https://zinc-glaze.github.io/TriviaGame/
+
+### Screenshots
+
+![Trivia Game](screens/screencapture-zinc-glaze-github-io-TriviaGame-2019-06-27-19_21_27.png)
+
+![Trivia Game](screens/screencapture-zinc-glaze-github-io-TriviaGame-2019-06-27-19_21_41.png)
+
+![Trivia Game](screens/screencapture-zinc-glaze-github-io-TriviaGame-2019-06-27-19_21_59.png)
+
+![Trivia Game](screens/screencapture-zinc-glaze-github-io-TriviaGame-2019-06-27-19_23_07.png)
+
+The assigment specified the following requirements:
 
 * You'll create a trivia game that shows only one question until the player answers it or their time runs out.
 

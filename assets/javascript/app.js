@@ -167,26 +167,26 @@ var triviaDeck = {
         image:  "https://media.giphy.com/media/s33IE5ZiQfha8/giphy.gif",
         validAnswer: 3
         }, {
-            question: "What synth-pop group from Sheffield, England released the hit single 'Don't You Want Me' in 1981?",
-            choices: ["Duran Duran", "Flock of Seagulls", "Depeche Mode", "The Human League"],
-            image:  "https://media.giphy.com/media/SeW6r48pgFLfa/giphy-downsized.gif",
-            validAnswer: 3
-            }, {
-            question: "What band was formed by the surviving 3 members of Joy Division after lead singer Ian Curtis' death?",
-            choices: ["The Smiths", "New Order", "The Jesus and Mary Chain", "The Cure"],
-            image:  "https://media.giphy.com/media/p29xnqfmtZzY4/giphy.gif",
-            validAnswer: 1
-            }, {
-            question: "He was Andrew Ridgely's partner in the duo Wham!",
-            choices: ["Boy George", "Rick Astley", "George Michael", "Gary Numan"],
-            image:  "https://media.giphy.com/media/6oQQWzgnkWQxy/giphy-downsized.gif",
-            validAnswer: 2
-            }, {
-            question: "Which prog-rock band was Phil Collins a part of before becoming a solo star in the '80s?",
-            choices: ["Genesis", "Yes", "King Crimson", "Rush"],
-            image:  "https://media.giphy.com/media/8YCQcGsJjG8Ug/giphy-downsized.gif",
-            validAnswer: 0
-            }, {
+        question: "What synth-pop group from Sheffield, England released the hit single 'Don't You Want Me' in 1981?",
+        choices: ["Duran Duran", "Flock of Seagulls", "Depeche Mode", "The Human League"],
+        image:  "https://media.giphy.com/media/SeW6r48pgFLfa/giphy-downsized.gif",
+        validAnswer: 3
+        }, {
+        question: "What band was formed by the surviving 3 members of Joy Division after lead singer Ian Curtis' death?",
+        choices: ["The Smiths", "New Order", "The Jesus and Mary Chain", "The Cure"],
+        image:  "https://media.giphy.com/media/p29xnqfmtZzY4/giphy.gif",
+        validAnswer: 1
+        }, {
+        question: "He was Andrew Ridgely's partner in the duo Wham!",
+        choices: ["Boy George", "Rick Astley", "George Michael", "Gary Numan"],
+        image:  "https://media.giphy.com/media/6oQQWzgnkWQxy/giphy-downsized.gif",
+        validAnswer: 2
+        }, {
+        question: "Which prog-rock band was Phil Collins a part of before becoming a solo star in the '80s?",
+        choices: ["Genesis", "Yes", "King Crimson", "Rush"],
+        image:  "https://media.giphy.com/media/8YCQcGsJjG8Ug/giphy-downsized.gif",
+        validAnswer: 0
+        }, {
         question: "Which Jackson sibling gained 'Control' of the #1 spot on the album charts with this 1986 album?",
         choices: ["Michael", "Janet", "Jermaine", "La Toya"],
         image:  "https://media.giphy.com/media/BWJ5HDG6T5lK0/giphy-downsized.gif",
